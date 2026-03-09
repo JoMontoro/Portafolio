@@ -1,0 +1,615 @@
+:root{
+    --primary:#3fa9f5;
+    --dark:#0d1b3a;
+    --card:#1f2f57;
+    --light:#ffffff;
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI', sans-serif;
+    background:#000; /* mejor negro para efecto matrix */
+    color:var(--light);
+    overflow-x:hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+}
+/* ========================= */
+/* MATRIX BACKGROUND */
+/* ========================= */
+
+#matrixCanvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 🔥 lo manda detrás */
+    pointer-events: none; /* evita que bloquee clicks */
+}
+
+#btnsubir{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: #00ff88;
+    color: #000;
+    font-size: 22px;
+    cursor: pointer;
+    display: none; /* oculto al inicio */
+    z-index: 1000;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+#btnsubir:hover{
+    background: #ffffff;
+    color: #000;
+    transform: scale(1.1);
+}
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+.header{
+    width:100%;
+    padding:25px 0;
+}
+
+.header-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 12px;
+    text-decoration:none;
+    color:#ffffff;
+}
+
+.logo img{
+    width:90px;
+    height:80px;
+    border-radius:5px;
+}
+.logo span{
+    
+    font-size:20px;
+    font-weight:800;
+    background: linear-gradient(90deg, #00ff88, #3fa9f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 0 8px rgba(0,255,136,0.3);
+}
+.nav{
+    display:flex;
+    gap:20px;
+}
+
+.nav a{
+    text-decoration:none;
+       color:#000000;
+       -webkit-text-stroke: 1px #727272;
+    text-shadow:
+        0 0 5px #00ff88,
+        0 0 10px #00ff88,
+        0 0 20px #00ff88;
+    font-size:20px;
+    padding:8px 14px;
+    border-radius:6px;
+    background:#008b4a;
+    transition:0.3s;
+}
+
+.nav a:hover{
+    background:#000000;
+    color: #ffffff;
+
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+    text-align:center;
+    padding:100px 0 80px 0;
+}
+
+.hero h1{
+    font-size:80px;
+    font-weight:300;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    opacity:0.85;
+}
+
+.btn{
+     font-size:20px;
+    margin-top:25px;
+    padding:20px 50px;
+    border:none;
+    border-radius:6px;
+    background:#008b4a;
+       color:#000000;
+       -webkit-text-stroke: 3.5px #ffffff;
+    text-shadow:
+        0 0 5px #00ff88,
+        0 0 10px #00ff88,
+        0 0 20px #00ff88;
+    cursor:pointer;
+    transition:0.3s;
+    letter-spacing: 4px;
+}
+
+.btn:hover{
+       background:#000000;
+    color: #ffffff;
+}
+
+.btn-contact{
+     font-size:20px;
+    margin-top:25px;
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    background:#008b4a;
+       color:#000000;
+       -webkit-text-stroke: 1px #ffffff;
+    text-shadow:
+        0 0 5px #00ff88,
+        0 0 10px #00ff88,
+        0 0 20px #00ff88;
+    cursor:pointer;
+    transition:0.3s;
+    letter-spacing: 4px;
+}
+.btn-contact:hover{
+       background:#000000;
+    color: #ffffff;
+}
+/* remove underline from links inside buttons */
+.btn a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ========================= */
+/* SECCIONES */
+/* ========================= */
+
+.section{
+    padding:90px 0;
+    text-align:center;
+}
+
+.section h2{
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+/* ========================= */
+/* SOBRE */
+/* ========================= */
+
+.sobre .sobre-content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.sobre .card{
+    background:#000000;
+    color: #ffffff;
+    padding:35px;
+    border-radius:12px;
+    max-width:750px;
+    margin:0 auto;
+    line-height:1.7;
+    font-size:20px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.sobre .card:hover{
+background: #ffffffb2;
+color: #000000;
+    box-shadow:
+        0 0 100px rgba(0,255,136,0.3),
+        0 0 100px rgba(0,255,136,0.2),
+        0 0 100px rgba(0,255,136,0.1);
+}
+.titulo_sobre{
+    font-size:40px;
+    margin-bottom:0;
+}
+
+
+/* ========================= */
+/* PROYECTOS */
+/* ========================= */
+
+.proyectos .projects{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:40px;
+    justify-items:center;
+}
+
+.proyectos .project-card{
+    position: relative;
+    width:100%;
+    max-width:260px;
+    height:260px;
+    border-radius:12px;
+    overflow:hidden;
+    background: #0a0a0a;
+    box-shadow:0 4px 8px rgba(255, 255, 255, 0.856);
+    transition:filter 0.3s, box-shadow 0.3s;
+}
+
+.proyectos .project-card a {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    text-indent: -9999px;
+}
+
+.proyectos .project-card img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.proyectos .project-card:hover{
+    filter:brightness(1.1);
+    box-shadow:0 6px 12px rgb(255, 255, 255);
+}
+
+/* ========================= */
+/* HABILIDADES */
+/* ========================= */
+.slider {
+  width: 70%;              /* 🔥 Reduce el ancho visible */
+  max-width: 900px;        /* Opcional: límite máximo */
+  margin: 0 auto;          /* Centra el bloque */
+  overflow: hidden;
+  background: #162b4d1a;     /* tu azul */
+  padding: 30px 0;         /* solo vertical */
+  border-radius: 12px;     /* opcional: más elegante */
+}
+
+.slider-track {
+  display: flex;
+  gap: 50px;
+}
+
+.icon {
+  flex: 0 0 auto;
+}
+
+.icon img {
+  width: 100px;
+}
+
+.habilidades .skill {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.habilidades .skill img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.habilidades .skill:hover {
+    transform: scale(0.9);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+
+}
+/* ========================= */
+/* CONTACTO */
+/* ========================= */
+
+.contacto .contacto-content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0px; /* reduce space further so title and form are very close */
+    flex-wrap:wrap;
+}
+
+.titulo_contacto{
+    font-size:40px;
+    margin-bottom:0;
+    padding:0; /* eliminate extra space so title sits next to form */
+}
+
+.contacto .form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    max-width:600px; /* increased width */
+    margin:0 auto;
+}
+
+
+.contacto .form input,
+.contacto .form textarea{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    font-size:22px; /* slightly larger text */
+}
+
+
+.contacto .form textarea{
+    grid-column:1 / -1;
+    resize:none;
+}
+
+.contacto .form button{
+    grid-column:1 / -1;
+    justify-self:right;
+}
+
+/* ========================= */
+/* RESPONSIVE TABLET */
+/* ========================= */
+@media (min-width:769px) and (max-width:1024px){
+
+    .header-content{
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:20px;
+    }
+
+    .hero{
+        padding:80px 0;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .section{
+        padding:70px 0;
+    }
+
+    .section h2{
+        font-size:32px;
+    }
+
+    .proyectos .projects{
+        grid-template-columns:repeat(2,1fr);
+        gap:30px;
+    }
+
+    .sobre .sobre-content{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .contacto .contacto-content{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .contacto .form{
+        grid-template-columns:1fr;
+        max-width:500px;
+    }
+
+    .slider{
+       width:600px;
+    }
+
+    .icon img{
+    width:100px;
+    height:auto;
+    object-fit:contain;
+    }
+}
+
+
+/* ========================= */
+/* RESPONSIVE MOVIL */
+/* ========================= */
+@media (max-width:768px){
+
+    .header-content{
+        flex-direction:column;
+        text-align:center;
+        gap:20px;
+    }
+
+    .nav{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero{
+        padding:60px 0;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:60px 0;
+    }
+
+    .section h2{
+        font-size:26px;
+    }
+
+    .proyectos .projects{
+        grid-template-columns:1fr;
+    }
+
+    .proyectos .project-card{
+        max-width:100%;
+    }
+
+    .sobre .sobre-content{
+        flex-direction:column;
+    }
+
+    .contacto .contacto-content{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .contacto .form{
+        grid-template-columns:1fr;
+        width:100%;
+    }
+
+    .slider{
+        width:700px;
+    }
+
+    .icon img{
+        width:70px;
+    }
+
+    #btnsubir{
+        right:20px;
+        bottom:20px;
+        width:45px;
+        height:45px;
+        font-size:18px;
+    }
+}
+
+
+
+/* ========================= */
+/* TABLET */
+/* ========================= 
+
+@media (max-width:1024px){
+
+    .proyectos .projects{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .habilidades .slider-track{
+        width:300px;
+    }
+}
+*/
+/* ========================= */
+/* MOVIL */
+/* ========================= 
+
+@media (max-width:768px){
+
+    .header-content{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .proyectos .projects{
+        grid-template-columns:1fr;
+    }
+
+    .proyectos .project-card{
+        max-width:320px;
+    }
+
+    .habilidades .slider{
+        flex-direction:column;
+    }
+
+    .habilidades .arrow{
+        display:none;
+    }
+
+    .habilidades .slider-track{
+        width:220px;
+    }
+
+    .hero{
+        padding:60px 0;
+    }
+
+    .hero h1{
+        font-size:26px;
+    }
+
+    .section{
+        padding:60px 0;
+    }
+
+    /* stack sobre section on small screens 
+    .sobre .sobre-content{
+        flex-direction:column;
+    }
+    .titulo_sobre{
+        margin-bottom:20px;
+    }
+*/
+    /* stack contact section on small screens 
+    .contacto .contacto-content{
+        flex-direction:column;
+    }
+    .titulo_contacto{
+        margin-bottom:20px;
+    }
+}
+*/
