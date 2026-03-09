@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <title>Jose Montoro | Full Stack Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <button id="btnsubir">T</button>
-<canvas id="matrixCanvas"></canvas>
-    <header class="header">
+    <button id="btnsubir">↑</button>
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- HEADER sin foto -->
+    <header class="header" id="mainHeader">
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <img src="/img/foto.png" alt="Jose Montoro">
                 <span>JOSE MONTORO</span>
             </a>
 
@@ -32,24 +32,34 @@
 
         <!-- HERO -->
         <section class="hero container">
-            <h1>Frontend / Full Stack Developer</h1>
-            <p>Desarrollador especializado en Angular, arquitectura web y seguridad.</p>
-            <button class="btn"> <a href="#proyectos">Ver Proyectos</a></button>
+            <h1>Frontend / Full Stack <span class="hero-highlight">Developer</span></h1>
+            <p>Desarrollador especializado en <strong>Angular</strong>, arquitectura web y seguridad.</p>
+            <button class="btn"><a href="#proyectos">Ver Proyectos</a></button>
         </section>
 
-        <!-- SOBRE MI -->
+        <!-- SOBRE MI — con imagen dentro -->
         <section id="sobre" class="section container sobre">
+            <h2 class="titulo_sobre">Sobre mí</h2>
             <div class="sobre-content">
-                <h2 class="titulo_sobre">Sobre mí</h2>
-                <div class="card">
-                    <p>
-                        Soy desarrollador web enfocado en la creación de aplicaciones modernas, seguras y escalables.
-                        Trabajo principalmente con Angular y tecnologías backend como Java y Spring Boot, desarrollando
-                        sistemas administrativos y soluciones basadas en inteligencia artificial. Me apasiona la
-                        arquitectura limpia, la optimización de bases de datos y aplicar buenas prácticas de seguridad
-                        en
-                        cada proyecto.
-                    </p>
+                <div class="sobre-img-wrap">
+                    <img src="img/foto.png" alt="Jose Montoro" class="sobre-foto">
+                </div>
+                <div class="card-flip-container">
+                    <div class="card-flip">
+                        <div class="card-front">
+                            <h3>¿Quién soy?</h3>
+                            <p>Haz hover para conocerme →</p>
+                        </div>
+                        <div class="card-back">
+                            <p>
+                                Soy desarrollador web enfocado en la creación de aplicaciones modernas, seguras y escalables.
+                                Trabajo principalmente con Angular y tecnologías backend como Java y Spring Boot, desarrollando
+                                sistemas administrativos y soluciones basadas en inteligencia artificial. Me apasiona la
+                                arquitectura limpia, la optimización de bases de datos y aplicar buenas prácticas de seguridad
+                                en cada proyecto.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -58,35 +68,40 @@
         <section id="proyectos" class="section container proyectos">
             <h2>Proyectos</h2>
             <div class="projects">
-                <div class="project-card"><img src="/img/pro1.png" alt="Proyecto 1"><a href="https://interfaz-sangria.vercel.app/"></a></div>
-                <div class="project-card"><img src="/img/pro2.png" alt="Proyecto 2"><a href="https://frontcalculos.vercel.app/"></a></div>
-                <div class="project-card"><img src="/img/pro1.png" alt="Proyecto 3"></div>
+                <div class="project-card">
+                    <img src="img/pro1.png" alt="Proyecto 1">
+                    <a href="https://interfaz-sangria.vercel.app/" target="_blank"></a>
+                </div>
+                <div class="project-card">
+                    <img src="img/pro2.png" alt="Proyecto 2">
+                    <a href="https://frontcalculos.vercel.app/" target="_blank"></a>
+                </div>
+                <div class="project-card">
+                    <img src="img/pro1.png" alt="Proyecto 3">
+                </div>
             </div>
         </section>
 
         <!-- HABILIDADES -->
         <section id="habilidades" class="section container habilidades">
             <h2>Habilidades</h2>
-
             <div class="slider">
-    <div class="slider-track" id="sliderTrack">
-
-        <div class="skill"><img src="/img/angular.png" alt=""></div>
-        <div class="skill"><img src="/img/github.png" alt=""></div>
-        <div class="skill"><img src="/img/HTML.png" alt=""></div>
-        <div class="skill"><img src="/img/CSS.png" alt=""></div>
-        <div class="skill"><img src="/img/js.png" alt=""></div>
-        <div class="skill"><img src="/img/nodo js.png" alt=""></div>
-        <div class="skill"><img src="/img/spring-boot.svg" alt=""></div>
-    </div>
-</div>
+                <div class="slider-track" id="sliderTrack">
+                    <div class="skill"><img src="img/angular.png" alt="Angular"><span class="skill-label">Angular</span></div>
+                    <div class="skill"><img src="img/github.png" alt="GitHub"><span class="skill-label">GitHub</span></div>
+                    <div class="skill"><img src="img/HTML.png" alt="HTML"><span class="skill-label">HTML5</span></div>
+                    <div class="skill"><img src="img/CSS.png" alt="CSS"><span class="skill-label">CSS3</span></div>
+                    <div class="skill"><img src="img/js.png" alt="JavaScript"><span class="skill-label">JavaScript</span></div>
+                    <div class="skill"><img src="img/nodo js.png" alt="Node.js"><span class="skill-label">Node.js</span></div>
+                    <div class="skill"><img src="img/spring-boot.svg" alt="Spring Boot"><span class="skill-label">Spring Boot</span></div>
+                </div>
+            </div>
         </section>
 
         <!-- CONTACTO -->
         <section id="contacto" class="section container contacto">
             <div class="contacto-content">
                 <h2 class="titulo_contacto">Contacto</h2>
-
                 <form id="contactForm" class="form">
                     <input type="text" placeholder="Nombre" required>
                     <input type="email" placeholder="Correo electrónico" required>
@@ -98,9 +113,41 @@
 
     </main>
 
-    <script src="/script.js"></script>
-    <script src="/fondo.js"></script>
-    <script src="/subir.js"></script>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Jose Montoro</h3>
+                <p>Full Stack Developer</p>
+                <p>Angular · Java · Spring Boot</p>
+            </div>
+            <div class="footer-col">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="#sobre">Sobre mí</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p>📧 josemontoro@email.com</p>
+                <p>📍 España</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="GitHub">GH</a>
+                    <a href="#" aria-label="LinkedIn">IN</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Jose Montoro · Diseñado y desarrollado por José Montoro</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="fondo.js"></script>
+    <script src="subir.js"></script>
 </body>
 
 </html>
