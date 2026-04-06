@@ -28,7 +28,7 @@ export default function Proyectos() {
   return (
     <section id="proyectos" className="section container fade-in" ref={sectionRef}>
       <h2>Proyectos</h2>
-      <div className="projects-grid">
+      <div className="projects-grid gap: 50px">
         {projects.map(({ img, alt, href }, i) => (
           <div className="project-card" key={i}>
             <img src={img} alt={alt} />
