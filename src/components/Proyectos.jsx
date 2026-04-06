@@ -5,7 +5,7 @@ import pro2 from '../assets/pro2.png'
 const projects = [
   { img: pro1, alt: 'Proyecto 1', href: 'https://interfaz-sangria.vercel.app/' },
   { img: pro2, alt: 'Proyecto 2', href: 'https://frontcalculos.vercel.app/'   },
-  { img: pro1, alt: 'Proyecto 3', href: null                                   },
+  
 ]
 
 export default function Proyectos() {

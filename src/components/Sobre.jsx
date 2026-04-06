@@ -33,7 +33,7 @@ export default function Sobre() {
           <div className="card-flip">
             <div className="card-front">
               <h3>¿Quién soy?</h3>
-              <p>Haz hover para conocerme →</p>
+              <p>→</p>
             </div>
             <div className="card-back">
               <p>
