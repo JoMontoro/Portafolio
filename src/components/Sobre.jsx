@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import foto from '../assets/foto.png'
+import foto from '../assets/foto_perfil2.png'
 
 export default function Sobre() {
   const sectionRef = useRef(null)
