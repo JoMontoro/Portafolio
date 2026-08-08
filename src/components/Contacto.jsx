@@ -1,8 +1,14 @@
 import { useState, useRef, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
+
+// Inicializar EmailJS (reemplaza con tu Public Key de EmailJS)
+emailjs.init('QY0DvsyS7OgM1j3Qz')
 
 export default function Contacto() {
   const [form, setForm] = useState({ nombre: '', email: '', mensaje: '' })
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -25,10 +31,34 @@ export default function Contacto() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Formulario enviado:', form)
-    setSent(true)
-    setTimeout(() => setSent(false), 3000)
-    setForm({ nombre: '', email: '', mensaje: '' })
+    setLoading(true)
+    setError(false)
+
+    // Enviar con EmailJS
+    // Reemplaza: service_id, template_id y to_email con tus valores
+    emailjs.send(
+      'service_kfazoxl',  // Tu Service ID
+      'template_n0i7czv', // Tu Template ID
+      {
+        to_email: 'jmg050299@gmail.com', // Tu email destino
+        from_name: form.nombre,
+        from_email: form.email,
+        message: form.mensaje,
+      }
+    ).then(
+      () => {
+        setSent(true)
+        setForm({ nombre: '', email: '', mensaje: '' })
+        setTimeout(() => setSent(false), 3000)
+        setLoading(false)
+      },
+      (error) => {
+        console.error('Error:', error)
+        setError(true)
+        setLoading(false)
+        setTimeout(() => setError(false), 3000)
+      }
+    )
   }
 
   return (
@@ -43,6 +73,7 @@ export default function Contacto() {
             value={form.nombre}
             onChange={handleChange}
             required
+            disabled={loading}
           />
           <input
             type="email"
@@ -51,6 +82,7 @@ export default function Contacto() {
             value={form.email}
             onChange={handleChange}
             required
+            disabled={loading}
           />
           <textarea
             name="mensaje"
@@ -58,10 +90,11 @@ export default function Contacto() {
             value={form.mensaje}
             onChange={handleChange}
             required
+            disabled={loading}
           />
           <div className="form-submit">
-            <button type="submit" className="btn-contact">
-              {sent ? '¡Enviado! ✓' : 'Enviar'}
+            <button type="submit" className="btn-contact" disabled={loading}>
+              {loading ? '⏳ Enviando...' : sent ? '✓ ¡Enviado!' : error ? '✗ Error' : 'Enviar'}
             </button>
           </div>
         </form>
